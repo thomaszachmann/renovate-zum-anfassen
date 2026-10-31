@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "security:minimumReleaseAgeNpm"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "vulnerabilityFixStrategy": "highest"
+  },
+  "packageRules": [
+    {
+      "description": "Nur zur Demo: npm-Releases 60 Tage reifen lassen",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "60 days"
+    }
+  ]
+}

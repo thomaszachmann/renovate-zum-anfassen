@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>billing/renovate-config"],
+  "postUpdateOptions": ["gomodTidy"],
+  "prConcurrentLimit": 4
+}

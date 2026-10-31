@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "labels": ["deps"],
+  "packageRules": [
+    {
+      "description": "Go-Worker",
+      "matchFileNames": ["services/worker/**"],
+      "addLabels": ["worker", "go"],
+      "additionalBranchPrefix": "{{parentDir}}-"
+    },
+    {
+      "description": "Web-Frontend",
+      "matchFileNames": ["packages/web/**"],
+      "addLabels": ["web"]
+    }
+  ]
+}

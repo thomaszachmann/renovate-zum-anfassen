@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Team-Zuordnung, Aufruf: :team(<label>, <reviewer>)",
+  "addLabels": ["{{arg0}}"],
+  "reviewers": ["{{arg1}}"]
+}

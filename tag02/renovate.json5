@@ -1,0 +1,40 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:recommended"],
+  prHourlyLimit: 0, // Lab: alle PRs in einem Lauf (Details: Tag 4)
+  packageRules: [
+    {
+      description: "Manager: alle npm-Updates",
+      matchManagers: ["npm"],
+      labels: ["npm"],
+    },
+    {
+      description: "exakter Name: express bekommt zusätzlich web",
+      matchPackageNames: ["express"],
+      addLabels: ["web"],
+    },
+    {
+      description: "Glob: alle Actions der Org actions",
+      matchPackageNames: ["actions/*"],
+      labels: ["ci"],
+    },
+    {
+      description: "Regex + Datei + Datasource: Basis-Image im Dockerfile",
+      matchFileNames: ["Dockerfile"],
+      matchDatasources: ["docker"],
+      matchPackageNames: ["/^node$/"],
+      labels: ["docker"],
+    },
+    {
+      description: "Majors außer Actions: überschreibt labels von oben",
+      matchUpdateTypes: ["major"],
+      matchPackageNames: ["!actions/*"],
+      labels: ["major"],
+    },
+    {
+      description: "devDependencies vorerst aus",
+      matchDepTypes: ["devDependencies"],
+      enabled: false,
+    },
+  ],
+}

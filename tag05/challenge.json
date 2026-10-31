@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["npm"],
+  "prHourlyLimit": 0,
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "description": "Alle patch/minor-Updates: Branch-Automerge nur bei grünem CI",
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ]
+}

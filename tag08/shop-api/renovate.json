@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "description": "Heute nur die internen Pakete der Org shop",
+      "matchPackageNames": ["!@shop/**", "!**/shop/base"],
+      "enabled": false
+    }
+  ]
+}

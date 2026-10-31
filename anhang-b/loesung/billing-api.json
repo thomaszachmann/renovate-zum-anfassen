@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>billing/renovate-config"],
+  "prConcurrentLimit": 4,
+  "prHourlyLimit": 0,
+  "platformAutomerge": false,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "kubectl-Version im Dockerfile",
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "matchStrings": ["ARG KUBECTL_VERSION=(?<currentValue>\\S+)"],
+      "depNameTemplate": "kubernetes/kubernetes",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Produktions-Dependencies nur montags vor 4 Uhr",
+      "matchDepTypes": ["dependencies"],
+      "schedule": ["* 0-3 * * 1"]
+    },
+    {
+      "description": "devDependencies in einem PR bündeln",
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "dev-tools"
+    },
+    {
+      "description": "Patches automatisch mergen",
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "description": "devDependencies ohne Major automatisch mergen",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "express-Major nur nach Freigabe im Dashboard",
+      "matchPackageNames": ["express"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

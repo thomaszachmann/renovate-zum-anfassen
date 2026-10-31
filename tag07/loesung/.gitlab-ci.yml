@@ -1,0 +1,11 @@
+variables:
+  # renovate: datasource=github-releases depName=aquasecurity/trivy extractVersion=^v(?<version>.*)$
+  TRIVY_VERSION: "0.48.0"
+
+scan:
+  image: alpine:3.19.1
+  script:
+    - T="trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
+    - wget -qO- "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/$T"
+      | tar -xz trivy
+    - ./trivy fs --exit-code 1 .

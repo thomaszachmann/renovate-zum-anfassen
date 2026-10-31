@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: renovate-cache
+  namespace: renovate
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests: {storage: 1Gi}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  schedule: "0 * * * *"          # stündlich zur vollen Stunde
+  timeZone: Europe/Berlin
+  concurrencyPolicy: Forbid      # nie zwei Läufe gleichzeitig
+  startingDeadlineSeconds: 600
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0            # kein Retry-Sturm, nächster Lauf kommt sowieso
+      activeDeadlineSeconds: 3000
+      ttlSecondsAfterFinished: 86400
+      template:
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            fsGroup: 12021       # User des Renovate-Images
+          containers:
+          - name: renovate
+            image: ghcr.io/renovatebot/renovate:44.153.1
+            env:
+            - {name: RENOVATE_CONFIG_FILE, value: /config/config.js}
+            - {name: RENOVATE_BASE_DIR, value: /tmp/renovate}     # Klone: emptyDir
+            - {name: RENOVATE_CACHE_DIR, value: /cache/renovate}  # Caches: PVC
+            - {name: LOG_LEVEL, value: info}
+            envFrom:
+            - secretRef: {name: renovate-env}   # RENOVATE_TOKEN
+            resources:
+              requests: {cpu: 250m, memory: 512Mi}
+              limits: {cpu: "1", memory: 2Gi}
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities: {drop: [ALL]}
+            volumeMounts:
+            - {name: config, mountPath: /config, readOnly: true}
+            - {name: tmp, mountPath: /tmp}
+            - {name: cache, mountPath: /cache}
+          volumes:
+          - name: config
+            configMap: {name: renovate-config}
+          - name: tmp
+            emptyDir: {sizeLimit: 2Gi}
+          - name: cache
+            persistentVolumeClaim: {claimName: renovate-cache}

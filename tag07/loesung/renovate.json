@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "customManagers:dockerfileVersions",
+    "customManagers:makefileVersions",
+    "customManagers:gitlabPipelineVersions"
+  ],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "description": "CI-Werkzeuge in tools.yaml",
+      "fileFormat": "yaml",
+      "managerFilePatterns": [
+        "tools.yaml"
+      ],
+      "matchStrings": [
+        "tools.{ \"depName\": repo, \"currentValue\": version }"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "Test-Datenbank in deploy.env",
+      "managerFilePatterns": [
+        "deploy.env"
+      ],
+      "matchStringsStrategy": "combination",
+      "matchStrings": [
+        "DB_IMAGE=(?<depName>\\S+)",
+        "DB_TAG=(?<currentValue>\\S+)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "customDatasources": {
+    "shop-cli": {
+      "defaultRegistryUrlTemplate": "http://127.0.0.1:3000/api/v1/repos/shop/releases/raw/shop-cli.json",
+      "transformTemplates": [
+        "{ \"releases\": [versions.{ \"version\": $ }] }"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["npm", "dockerfile"],
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "description": "Node-Image: nur LTS-Linie 22, immer mit Digest",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["node"],
+      "allowedVersions": "/^22\\./",
+      "pinDigests": true
+    },
+    {
+      "description": "express 5 ignorieren",
+      "matchPackageNames": ["express"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
+}

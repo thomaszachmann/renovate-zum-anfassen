@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Go-Repos: go.sum per go mod tidy aufräumen, Label golang",
+  "postUpdateOptions": ["gomodTidy"],
+  "packageRules": [
+    {
+      "description": "shop:golang Label golang",
+      "matchManagers": ["gomod"],
+      "addLabels": ["golang"]
+    }
+  ]
+}

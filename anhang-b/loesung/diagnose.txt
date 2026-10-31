@@ -1,0 +1,3 @@
+Lauf 1: Error type: The Renovate configuration file contains some invalid settings
+Message: Configuration option `prConcurrentLimit` should be an integer. Found: "4" (string).
+Lauf 2: Error type: Cannot find preset's package (config:recomended)

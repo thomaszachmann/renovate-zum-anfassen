@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["npm", "dockerfile"],
+  "prHourlyLimit": 0,
+  "ignoreDeps": ["prettier"],
+  "packageRules": [
+    {
+      "description": "express 5 erst nach Migration (Ticket SHOP-42)",
+      "matchPackageNames": ["express"],
+      "allowedVersions": "<5"
+    },
+    {
+      "description": "Node: nur gerade Majors",
+      "matchPackageNames": ["node"],
+      "versioning": "docker",
+      "allowedVersions": "/^\\d*[02468]\\./"
+    },
+    {
+      "matchPackageNames": ["lodash"],
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Container-Images: Label docker, keine Updates in examples/",
+  "packageRules": [
+    {
+      "description": "shop:docker Label docker",
+      "matchDatasources": ["docker"],
+      "addLabels": ["docker"]
+    },
+    {
+      "description": "shop:docker examples/ ignorieren",
+      "matchFileNames": ["examples/**"],
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  // Absichtlich fehlerhaft
+  extends: ["config:recommended"],
+  prHourlyLimt: 4,
+  packageRules: [
+    {
+      matchPackagePatterns: ["^@types/"],
+      labels: ["types"],
+    },
+  ],
+}

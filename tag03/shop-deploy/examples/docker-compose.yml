@@ -1,0 +1,4 @@
+# Beispiel für Entwickler – soll Renovate nicht anfassen
+services:
+  mail:
+    image: mailhog/mailhog:v1.0.0

@@ -1,0 +1,8 @@
+# Werkzeuge für die CI-Runner, installiert von install-tools.sh
+tools:
+  - name: yq
+    repo: mikefarah/yq
+    version: v4.40.5
+  - name: shellcheck
+    repo: koalaman/shellcheck
+    version: v0.9.0

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboardLabels": ["renovate"],
+  "dependencyDashboardTitle": "Renovate-Steuerpult",
+  "dependencyDashboardFooter": "Zuständig: Platform-Team, Kanal #renovate",
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "description": "Majors nur nach Freigabe im Dashboard",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "express-Patches nie dauerhaft ignorieren",
+      "matchPackageNames": ["express"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "recreateWhen": "always"
+    }
+  ]
+}

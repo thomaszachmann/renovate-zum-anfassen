@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Org-Standard für alle Repos der Organisation shop",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Berlin",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "shop: Minor und Patch in einem PR bündeln",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "non-major"
+    },
+    {
+      "description": "shop: Majors nur montags vor 7 Uhr",
+      "matchUpdateTypes": ["major"],
+      "schedule": ["* 0-6 * * 1"]
+    },
+    {
+      "description": "shop: Basis-Images zuerst",
+      "matchPackageNames": ["node", "golang", "alpine"],
+      "prPriority": 5
+    }
+  ]
+}

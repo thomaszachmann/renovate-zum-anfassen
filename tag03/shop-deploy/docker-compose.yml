@@ -1,0 +1,7 @@
+services:
+  db:
+    image: postgres:15.4
+    environment:
+      POSTGRES_PASSWORD: lab-db-pw-123   # Lab-Wert!
+  cache:
+    image: redis:7.0.12

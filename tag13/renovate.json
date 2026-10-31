@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "baseBranchPatterns": ["main", "/^release\\/.+/"],
+  "labels": ["deps"],
+  "reviewers": ["alice"],
+  "lockFileMaintenance": {"enabled": true, "schedule": ["at any time"]},
+  "semanticCommits": "enabled",
+  "commitMessageAction": "Bump",
+  "prBodyNotes": ["Betreut von Team Shop, Fragen im Kanal #shop-deps."],
+  "prBodyDefinitions": {"Datei": "`{{{packageFile}}}`"},
+  "packageRules": [
+    {
+      "description": "Go-Worker",
+      "matchFileNames": ["services/worker/**"],
+      "addLabels": ["worker", "go"],
+      "additionalBranchPrefix": "{{parentDir}}-",
+      "postUpdateOptions": ["gomodTidy"],
+      "semanticCommitType": "build",
+      "semanticCommitScope": "worker",
+      "commitMessageTopic": "{{{depName}}}",
+      "commitMessageExtra": "{{{currentValue}}} -> {{{newValue}}}",
+      "assignees": ["alice"]
+    },
+    {
+      "description": "Web-Frontend",
+      "matchFileNames": ["packages/web/**"],
+      "addLabels": ["web"]
+    },
+    {
+      "description": "Workspaces",
+      "matchFileNames": ["packages/**"],
+      "semanticCommitScope": "{{parentDir}}"
+    },
+    {
+      "description": "Majors",
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(deps)!:"
+    },
+    {
+      "description": "PR-Tabelle",
+      "matchPackageNames": ["*"],
+      "prBodyColumns": ["Package", "Change", "Datei"]
+    }
+  ]
+}

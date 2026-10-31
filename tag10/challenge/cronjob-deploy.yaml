@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate-deploy
+  namespace: renovate
+spec:
+  schedule: "30 * * * *"         # stündlich, versetzt zum Haupt-Job
+  timeZone: Europe/Berlin
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 1500
+      template:
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            fsGroup: 12021
+          containers:
+          - name: renovate
+            image: ghcr.io/renovatebot/renovate:44.153.1
+            env:
+            - {name: RENOVATE_CONFIG_FILE, value: /config/config.js}
+            - {name: RENOVATE_AUTODISCOVER, value: "false"}  # sonst ignoriert
+            - {name: RENOVATE_REPOSITORIES, value: shop/shop-deploy}
+            - {name: RENOVATE_BASE_DIR, value: /tmp/renovate}
+            - {name: RENOVATE_CACHE_DIR, value: /cache/renovate}
+            envFrom:
+            - secretRef: {name: renovate-env}
+            resources:
+              requests: {cpu: 250m, memory: 512Mi}
+              limits: {cpu: "1", memory: 2Gi}
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities: {drop: [ALL]}
+            volumeMounts:
+            - {name: config, mountPath: /config, readOnly: true}
+            - {name: tmp, mountPath: /tmp}
+            - {name: cache, mountPath: /cache}
+          volumes:
+          - name: config
+            configMap: {name: renovate-config}
+          - name: tmp
+            emptyDir: {sizeLimit: 2Gi}
+          - name: cache
+            persistentVolumeClaim: {claimName: renovate-cache}

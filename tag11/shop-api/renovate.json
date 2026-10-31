@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>shop/renovate-config",
+    "local>shop/renovate-config:automerge-dev",
+    "local>shop/renovate-config:team(team-shop, lab-admin)"
+  ]
+}

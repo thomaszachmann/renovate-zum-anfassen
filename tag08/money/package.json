@@ -1,0 +1,7 @@
+{
+  "name": "@shop/money",
+  "version": "1.0.0",
+  "description": "Geldbeträge in Cent – internes Paket der Org shop",
+  "main": "index.js",
+  "license": "UNLICENSED"
+}

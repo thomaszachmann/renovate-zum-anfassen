@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "vulnerabilityFixStrategy": "highest"
+  },
+  "packageRules": [
+    {
+      "description": "Nur zur Demo: 3 Monate ohne Release = verwaist",
+      "matchPackageNames": ["*"],
+      "abandonmentThreshold": "3 months"
+    },
+    {
+      "description": "Nach Prettier-Updates den Code neu formatieren",
+      "matchPackageNames": ["prettier"],
+      "postUpgradeTasks": {
+        "commands": ["npm ci --ignore-scripts", "npm run format"],
+        "fileFilters": ["**/*.js"]
+      }
+    }
+  ]
+}
