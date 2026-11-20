@@ -1,3 +1,3 @@
 # shop-api
 
-Demo-Anwendung für „Renovate zum Anfassen". Alle Versionen sind absichtlich veraltet.
+Demo application for *Renovate hands-on* (German: *Renovate zum Anfassen*). All versions are intentionally outdated.

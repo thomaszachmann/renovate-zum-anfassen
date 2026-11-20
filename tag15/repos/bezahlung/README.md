@@ -1,3 +1,3 @@
 # bezahlung
 
-Zahlungsdienst. Nutzt das interne Paket @shop/money aus der Forgejo-Registry.
+Payment service. Uses the internal package @shop/money from the Forgejo registry.

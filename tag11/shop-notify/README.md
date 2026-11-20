@@ -1,3 +1,3 @@
 # shop-notify
 
-Go-Dienst der Shop-Demo ohne eigene Renovate-Config (Tag 11).
+Go service of the shop demo without its own Renovate config (Day 11).

@@ -1,3 +1,3 @@
 # lager
 
-Lager-Frontend. Seit dem Umbau bekommt jedes Paket einen eigenen PR.
+Warehouse frontend. Since the restructuring, every package gets its own PR.

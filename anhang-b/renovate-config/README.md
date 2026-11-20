@@ -1,3 +1,3 @@
 # renovate-config
 
-Org-Presets der Organisation billing (Anhang B). Noch leer.
+Org presets of the billing organization (Appendix B). Still empty.

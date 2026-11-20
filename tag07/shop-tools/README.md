@@ -1,5 +1,5 @@
 # shop-tools
 
-Werkzeugkiste des Shop-Teams: Tool-Image (Dockerfile), Makefile, Tool-Liste
-(tools.yaml), asdf/mise-Versionen (.tool-versions), Test-Datenbank (deploy.env).
-Übungsrepo für Tag 7 von „Renovate zum Anfassen".
+Toolbox of the shop team: tool image (Dockerfile), Makefile, tool list
+(tools.yaml), asdf/mise versions (.tool-versions), test database (deploy.env).
+Practice repo for Day 7 of *Renovate hands-on*.

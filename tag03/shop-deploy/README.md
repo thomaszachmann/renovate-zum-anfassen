@@ -1,3 +1,3 @@
 # shop-deploy
 
-Deployment-Artefakte der Shop-Demo: Helm-Chart, Kubernetes-Manifeste, docker-compose.
+Deployment artifacts of the shop demo: Helm chart, Kubernetes manifests, docker-compose.

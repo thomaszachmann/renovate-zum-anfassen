@@ -1,3 +1,3 @@
 # shop-worker
 
-Go-Worker der Shop-Demo. Absichtlich veraltete Module für das Renovate-Training.
+Go worker of the shop demo. Intentionally outdated modules for the Renovate training.

@@ -1,3 +1,3 @@
 # lager-app
 
-Demo-Repo der Organisation `lager` (Tag 9). Absichtlich veraltetes Basis-Image.
+Demo repo of the `lager` organization (Day 9). Intentionally outdated base image.

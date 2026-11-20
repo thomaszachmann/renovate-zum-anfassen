@@ -1,3 +1,3 @@
 # flut
 
-Backend-Service mit vielen Abhängigkeiten. Alle Versionen sind absichtlich alt.
+Backend service with many dependencies. All versions are intentionally old.

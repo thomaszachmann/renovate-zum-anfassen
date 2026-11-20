@@ -1,40 +1,40 @@
-# Renovate zum Anfassen – Begleitcode
+# Renovate hands-on – Companion Code
 
-Begleitcode zum Buch **Renovate zum Anfassen** – Abhängigkeiten automatisch aktuell halten – ohne PR-Flut. Teil der Reihe IT-Trainingslager von Thomas Zachmann.
+Companion code for the book **Renovate hands-on** (German edition: *Renovate zum Anfassen*) – keeping dependencies up to date automatically, without drowning in PRs. Part of Thomas Zachmann's IT Drills series.
 
-Buchseite: https://it-trainingslager.de/buecher/renovate
+Book page: https://itdrills.com/books/renovate · German edition: https://it-trainingslager.de/buecher/renovate
 
-Der Code begleitet das Buch; Erklärungen und Übungen stehen im Buch.
+The code accompanies the book; explanations and exercises are in the book.
 
-## Inhalt
+## Contents
 
 - `anhang-b/`
 - `setup/`
-- `tag00/` – Tag 0
-- `tag01/` – Tag 1
-- `tag02/` – Tag 2
-- `tag03/` – Tag 3
-- `tag04/` – Tag 4
-- `tag05/` – Tag 5
-- `tag06/` – Tag 6
-- `tag07/` – Tag 7
-- `tag08/` – Tag 8
-- `tag09/` – Tag 9
-- `tag10/` – Tag 10
-- `tag11/` – Tag 11
-- `tag12/` – Tag 12
-- `tag13/` – Tag 13
-- `tag14/` – Tag 14
-- `tag15/` – Tag 15
+- `tag00/` – Day 0
+- `tag01/` – Day 1
+- `tag02/` – Day 2
+- `tag03/` – Day 3
+- `tag04/` – Day 4
+- `tag05/` – Day 5
+- `tag06/` – Day 6
+- `tag07/` – Day 7
+- `tag08/` – Day 8
+- `tag09/` – Day 9
+- `tag10/` – Day 10
+- `tag11/` – Day 11
+- `tag12/` – Day 12
+- `tag13/` – Day 13
+- `tag14/` – Day 14
+- `tag15/` – Day 15
 
-## Schnellstart
+## Quick start
 
 ```bash
 git clone https://github.com/thomaszachmann/renovate-zum-anfassen.git
 ```
 
-An Tag 0 kopierst du den Begleitcode nach `~/renovate-lab/code` – Details stehen im Kapitel „Tag 0“ des Buchs.
+On Day 0 you copy the companion code to `~/renovate-lab/code` – details are in the book's "Day 0" chapter.
 
-## Lizenz
+## License
 
-Code: MIT (siehe LICENSE). Buchtexte, Abbildungen und Cover sind nicht Teil dieses Repos und nicht lizenziert.
+Code: MIT (see LICENSE). Book text, figures and cover are not part of this repo and are not licensed.

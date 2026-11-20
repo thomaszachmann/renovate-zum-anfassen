@@ -1,4 +1,4 @@
 # shop-mono
 
-Monorepo der Shop-Demo: npm-Workspaces unter `packages/`, Go-Worker unter
-`services/worker`. Absichtlich veraltet für das Renovate-Training.
+Monorepo of the shop demo: npm workspaces under `packages/`, Go worker under
+`services/worker`. Intentionally outdated for the Renovate training.

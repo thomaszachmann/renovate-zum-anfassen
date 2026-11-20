@@ -1,3 +1,3 @@
 # werkzeug
 
-Lint-Werkzeuge des Teams shop. Versionen stehen im Makefile.
+Lint tools of the shop team. Versions are in the Makefile.

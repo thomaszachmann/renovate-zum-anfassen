@@ -1,3 +1,3 @@
 # billing-api
 
-API der Billing-Demo (Anhang B). Absichtlich veraltet für die Abschlussprüfung.
+API of the billing demo (Appendix B). Intentionally outdated for the final exam.
